@@ -12,11 +12,25 @@ function App() {
 
     if(valor<=0 || valor>=20){
       document.getElementById('alerta').innerHTML = "Insira um valor de 1 a 20"
+      input.value = 1
     }
     else{
-
-      return valor
+      document.getElementById('alerta').innerHTML = ""      
     }
+
+  }
+
+
+  function Distancia(){
+    const input = document.querySelector('#input');
+    const andar = input.value;
+
+    const escada = document.querySelector('#escada');
+    const option = escada.value;
+    const distancia = Math.sqrt((option^2)/(andar^2));
+    console.log(distancia);
+    return document.getElementById('resultado').innerHTML = distancia.toFixed(2)
+    
 
   }
   
@@ -39,13 +53,14 @@ function App() {
             <label id='alerta'></label>
             <input type='number' placeholder='Andar' id='input' onBlur={()=>Andar()}></input>
             
-            <select>
-              <option>10 m</option>
-              <option>15 m</option>
-              <option>20 m</option>
+            <select id='escada' onChange={()=>Distancia()}>
+              <option value={10}>10 m</option>
+              <option value={15}>15 m</option>
+              <option value={20}>20 m</option>
             </select>
 
           </form>
+          <p id='resultado'></p>
         </main>
     </div>
   )
