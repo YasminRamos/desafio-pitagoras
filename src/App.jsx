@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import predio2 from './img/predio2.png'
+import caminhao from './img/caminhao.png'
+import escada from './img/escada.png'
 
 function App() {
  
@@ -10,7 +13,7 @@ function App() {
     const input = document.querySelector('#input');
     const valor = input.value;
 
-    if(valor<=0 || valor>=20){
+    if(valor<=0 || valor>20){
       document.getElementById('alerta').innerHTML = "Insira um valor de 1 a 20"
       input.value = 1
     }
@@ -24,12 +27,18 @@ function App() {
   function Distancia(){
     const input = document.querySelector('#input');
     const andar = input.value;
+    
 
     const escada = document.querySelector('#escada');
     const option = escada.value;
-    const distancia = Math.sqrt((option^2)/(andar^2));
+    
+    const distancia = Math.sqrt(Math.pow(option,2)-(Math.pow(andar,2)));
     console.log(distancia);
-    return document.getElementById('resultado').innerHTML = distancia.toFixed(2)
+    const desenho = document.querySelector('#resultado');
+    console.log(desenho);
+    desenho.style.width=`${distancia}rem`;
+
+    return document.getElementById('resultado').innerHTML = `${distancia.toFixed(2)} m`
     
 
   }
@@ -50,8 +59,8 @@ function App() {
           <p>Você é um bombeiro e foi chamado para apagar um incêndio em um apartamento. Insira qual é o andar que está em chamas e escolha o tamanho da sua escada, o sistema te retornará em qual distância do prédio você deve estacionar.
           </p>
           <form>
-            <label id='alerta'></label>
-            <input type='number' placeholder='Andar' id='input' onBlur={()=>Andar()}></input>
+            <label id='alerta' className='alerta'></label>
+            <input type='number' placeholder='Andar' id='input' onBlur={()=>Andar()} onChange={()=>Distancia()}></input>
             
             <select id='escada' onChange={()=>Distancia()}>
               <option value={10}>10 m</option>
@@ -60,7 +69,19 @@ function App() {
             </select>
 
           </form>
-          <p id='resultado'></p>
+          
+          <div>
+            <div  className='imagens'>
+              <div  className='predio'><img src={predio2} alt="predio" /></div>
+              <p id='resultado' className='resultado'></p>
+              <div className='caminhaocomescada'>
+                <div className='bombeiro'><img  src={escada} alt="escada" /></div>
+                <div className='caminhao'><img  src={caminhao} alt="caminhao de bombeiros" /></div>
+              </div>
+            </div>
+            
+            
+          </div>
         </main>
     </div>
   )
