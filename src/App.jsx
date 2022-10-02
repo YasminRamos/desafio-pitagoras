@@ -5,9 +5,10 @@ import predio2 from './img/predio2.png'
 import caminhao from './img/caminhao.png'
 import escada from './img/escada.png'
 
+
 function App() {
  
-
+  
   function Andar(){
     document.getElementById('alerta').innerHTML = ""
     const input = document.querySelector('#input');
@@ -46,29 +47,32 @@ function App() {
 
   return (
     <div className="App">
-      <header>
+      <header className='header'>
         
-        <nav>
           <h1>Desafio: Calculadora de Pitágoras</h1>
           <h2>Yasmin Coelho Ramos</h2>
-          
-        </nav>
+                          
       </header>
         <main>
-          <h1>Resolvendo problemas da vida real com o teorema de Pitágoras</h1>
-          <p>Você é um bombeiro e foi chamado para apagar um incêndio em um apartamento. Insira qual é o andar que está em chamas e escolha o tamanho da sua escada, o sistema te retornará em qual distância do prédio você deve estacionar.
-          </p>
-          <form>
-            <label id='alerta' className='alerta'></label>
-            <input type='number' placeholder='Andar' id='input' onBlur={()=>Andar()} onChange={()=>Distancia()}></input>
-            
-            <select id='escada' onChange={()=>Distancia()}>
-              <option value={10}>10 m</option>
-              <option value={15}>15 m</option>
-              <option value={20}>20 m</option>
-            </select>
-
-          </form>
+          <h3>Resolvendo problemas da vida real com o teorema de Pitágoras</h3>
+          <div className='enunsiado'>
+            <p>Você é um bombeiro e foi chamado para apagar um incêndio em um apartamento. Insira qual é o andar que está em chamas e escolha o tamanho da sua escada, o sistema te retornará em qual distância do prédio você deve estacionar.
+            </p>
+          </div>
+          <div className='inputs'>
+            <form>
+              
+              <div className='divandar'>
+                <input type='number' placeholder='Andar' id='input' onBlur={()=>Andar()} onChange={()=>Distancia()}></input>
+                             <label id='alerta' className='alerta'></label>
+              </div>
+              <select id='escada' onChange={()=>Distancia()}>
+                <option value={10}>10 m</option>
+                <option value={15}>15 m</option>
+                <option value={20}>20 m</option>
+              </select>
+            </form>
+          </div>
           
           <div>
             <div  className='imagens'>

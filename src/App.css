@@ -1,6 +1,21 @@
+
 .App {
   text-align: center;
+  background-color: #DCDCDCbb;
+  
 }
+
+.header, h1, h2{
+  background-color:#A9A9A9;
+  margin-top: 0;
+  position: 0;
+  padding: 0;
+  color: white;
+  text-shadow:1px 1px #000000;
+  
+}
+
+
 
 
 .imagens{
@@ -10,6 +25,21 @@
 .alerta{
   color: red; 
   font-size: 12px;
+  text-shadow: 1px 1px 1px #DCDCDC;
+  transition-delay: shadow 2s;
+}
+
+form{
+  display: flex;
+  justify-content: center;
+}
+
+.divandar{
+  width: 10rem;
+  align: center;
+  display: flex;
+  flex-direction: column;
+  height: 1rem;
 }
 
 .predio img{
@@ -25,17 +55,30 @@
   justify-content: flex-end;
   align-items: flex-end;
   
+  
 }
 
+.inputs{
+  padding: 10px;
+}
 
 .resultado{
   display: flex;
   text-align: center;
   align-items: flex-end;
   border-top: black;
-  width: 15rem;
   padding: 5px;
   border-bottom-style: solid;
+  transition: width 2s;
   
 }
 
+.enunsiado{
+  border-style: solid;
+  border-color: gray;
+  margin-right: 10rem;
+  margin-left: 10rem;
+  border-radius: 5px;
+  box-shadow: 2px 2px 2px #A9A9A9bb;
+
+}
